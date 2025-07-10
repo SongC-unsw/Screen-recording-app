@@ -1,7 +1,12 @@
 import React from "react";
-
+import Header from "@/components/Header";
 const page = () => {
-  return <h1 className='text-2xl font-karla'>Welcome to loom clone</h1>;
+  return (
+    <main className="wrapper page">
+      <Header />
+      <h1></h1>
+    </main>
+  );
 };
 
 export default page;
