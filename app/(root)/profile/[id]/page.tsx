@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import React from "react";
-
+import { dummyCards } from "@/constants/index";
+import VideoCard from "@/components/VideoCard";
 const page = async ({ params }: ParamsWithSearch) => {
   const { id } = await params;
   return (
@@ -10,7 +11,11 @@ const page = async ({ params }: ParamsWithSearch) => {
         title="Songyu's Profile"
         userImg="/assets/images/dummy.jpg"
       />
-      <h1 className="text-2xl font-karla">USER ID: {id}</h1>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {dummyCards.map((card) => (
+          <VideoCard {...card} />
+        ))}
+      </div>
     </div>
   );
 };

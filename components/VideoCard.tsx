@@ -19,7 +19,6 @@ const VideoCard = ({
   id,
   title,
   thumbnail,
-
   userImg,
   createdAt,
   userName,
@@ -27,6 +26,12 @@ const VideoCard = ({
   visibility,
   duration,
 }: VideoCardProps) => {
+  const formatDuration = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+  };
+
   return (
     <Link
       href={`/video/${id}`}
@@ -73,7 +78,7 @@ const VideoCard = ({
         <LinkIcon className="w-4 h-4 hover:text-gray-500 hover:scale-105 transition-all duration-200" />
       </button>
       <div className="duration-text absolute bottom-28 right-6 bg-gray-700 text-white rounded-full px-2 py-1 text-sm flex items-center justify-center">
-        {Math.ceil(duration / 60)}:{duration % 60}
+        {formatDuration(duration)}
       </div>
     </Link>
   );
